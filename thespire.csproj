@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -78,13 +80,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Character\Attributes.cs" />
     <Compile Include="Assets\Character\Character.cs" />
     <Compile Include="Assets\CharacterControl\Jump.cs" />
     <Compile Include="Assets\CharacterControl\MoveCharacter.cs" />
+    <Compile Include="Assets\Character\Experience.cs" />
+    <Compile Include="Assets\Game\CharacterCreation\CharacterGenerator.cs" />
     <Compile Include="Assets\Game\CharacterCreation\ClassSkill.cs" />
     <Compile Include="Assets\Game\CharacterCreation\CreateCharacter.cs" />
     <Compile Include="Assets\Game\CharacterCreation\RaceSkill.cs" />
     <Compile Include="Assets\Game\StartMenu\RunGame.cs" />
+    <Compile Include="Assets\Tools\EnumTools.cs" />
+    <Compile Include="Assets\Tools\NameGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
