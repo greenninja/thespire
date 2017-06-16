@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Character\Character.cs" />
+    <Compile Include="Assets\CharacterControl\Jump.cs" />
     <Compile Include="Assets\CharacterControl\MoveCharacter.cs" />
     <Compile Include="Assets\Game\CharacterCreation\ClassSkill.cs" />
     <Compile Include="Assets\Game\CharacterCreation\CreateCharacter.cs" />

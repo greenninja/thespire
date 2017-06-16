@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCharacter : MonoBehaviour {
+public class MoveCharacter : MonoBehaviour
+{
 
-    private GameObject Avatar = new GameObject();
+    public float speed;
 
-	// Use this for initialization
-	void Start () {
-	    //bluebluetesting
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+       
+        rb.AddForce(movement * speed);
+    }
 }
