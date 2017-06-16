@@ -8,7 +8,7 @@ public class MoveCharacter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    
+	    //bluebluetesting
 	}
 	
 	// Update is called once per frame
