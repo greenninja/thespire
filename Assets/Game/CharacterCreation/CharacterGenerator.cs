@@ -14,26 +14,23 @@ namespace Assets
         private string m_FirstName = "";
         private string m_LastName = "";
         private string m_NickName = "";
-        private Color m_Haircolor;
-        private Color m_Skincolor;
-        private GenderType m_Gender = GenderType.OTHER;
-        private SexualOrientation m_SexualOrientation;
+        private Gender m_Gender = Gender.MALE;
 
-        private static GenderType RandomizeGender()
+        private static Gender RandomizeGender()
         {
-            int t = UnityEngine.Random.Range(0, 11);
-            GenderType gender;
+            int t = UnityEngine.Random.Range(0, 10);
+            Gender gender = Gender.MALE;
 
-            if (t <= 5) gender = GenderType.MALE;
-            else if (t > 5 && t < 11) gender = GenderType.FEMALE;
-            else gender = GenderType.OTHER;
+            if (t <= 5) gender = Gender.MALE;
+            else if (t > 5 && t < 11) gender = Gender.FEMALE; 
 
             return gender;
         }
 
-        public void SetName(GenderType pGender)
+        public void SetName(Gender pGender)
         {
-            m_FirstName = RandomizeName(NamesGenerator.GetFirstNames(pGender));
+            m_Gender = pGender;
+           // m_FirstName = RandomizeName(NamesGenerator.GetFirstNames(m_Gender));
             m_LastName = RandomizeName(NamesGenerator.GetLastNames());
             m_NickName = RandomizeName(NamesGenerator.GetNickNames());
         }
@@ -61,8 +58,7 @@ namespace Assets
         {
             //Randomize Gender
             m_Gender = RandomizeGender();
-            //Randomize SexualIntrestType
-            GenSexualOrientation();
+          
             SetName(m_Gender);
 
             TimeSpan CalcSpan = new TimeSpan();
@@ -86,44 +82,10 @@ namespace Assets
             m_NickName = pNickname;
         }
 
-        public void GenSexualOrientation()
-        {
-            int r = UnityEngine.Random.Range(1, 10);
-            if (r == 10)
-            {
-                m_SexualOrientation = SexualOrientation.UNSPECIFIED;
-            }
-            else if (r >= 8)
-            {
-
-                m_SexualOrientation = SexualOrientation.HOMOSEXUAL;
-            }
-            else if (r >= 6)
-            {
-
-                m_SexualOrientation = SexualOrientation.BISEXUAL;
-            }
-
-            else
-            {
-
-                m_SexualOrientation = SexualOrientation.HETEROSEXUAL;
-            }
-
-        }
-
-        public enum SexualOrientation
-        {
-            UNSPECIFIED,
-            HOMOSEXUAL,
-            BISEXUAL,
-            HETEROSEXUAL
-        }
-        public enum GenderType
+        public enum Gender
         {
             MALE,
-            FEMALE,
-            OTHER
+            FEMALE
         }
     }
 }

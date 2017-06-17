@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets;
 
 namespace Assets
 {
-    public static class NamesGenerator
+    public class NamesGenerator
     {
+        private CharacterGenerator c;
+        private Gender gen;
+
         private static List<string> m_fstNames;
         private static List<string> m_fNames;
         private static List<string> m_mNames;
@@ -16,7 +20,7 @@ namespace Assets
         private static List<string> m_FullName;
 
 
-        public static List<string> GetFirstNames(GenderType pGender)
+        public List<string> GetFirstNames(Gender pGender)
         {
             //Access
             // GenderType pGender = RandomizeGender();
@@ -24,8 +28,8 @@ namespace Assets
 
             switch (pGender)
             {
-                case GenderType.MALE: fstNames = m_mNames; break;
-                case GenderType.FEMALE: fstNames = m_fNames; break;
+                case Gender.MALE: fstNames = m_mNames; break;
+                case Gender.FEMALE: fstNames = m_fNames; break;
                 default: fstNames = m_oNames; break;
             }
             return fstNames;
@@ -38,10 +42,7 @@ namespace Assets
             mNames.Add("JörGen");
             mNames.Add("Lasse");
 
-            //Get shit from database #Magic
-            //Select first name from namestable in "Link"
-            //Tables - NamesTable.
-            //->
+       
             return mNames;
         }
         public static List<string> GetFemaleNames()
@@ -77,7 +78,7 @@ namespace Assets
             return nNames;
         }
 
-        public static List<string> GenFullName(GenderType pGender)
+        public List<string> GenFullName(Gender pGender)
         {
             List<string> fstNames = GetFirstNames(pGender);
             List<string> nickNames = GetNickNames();
@@ -96,6 +97,11 @@ namespace Assets
             fullName.Add(nickName);
             fullName.Add(lastName);
             return fullName;
+        }
+        public enum Gender
+        {
+            MALE,
+            FEMALE
         }
 
     }
